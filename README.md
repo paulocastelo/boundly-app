@@ -115,7 +115,7 @@ Content-Type: application/json
 
 ## ✍️ Contribuições
 
-Sinta-se à vontade para abrir issues e propor melhorias! Este projeto é parte do portfólio de [Paulo Anderson Oliveira Castelo](https://github.com/paulocastelo).
+Sinta-se à vontade para abrir issues e propor melhorias! Este projeto é parte do portfólio de [Paulo Castelo](https://github.com/paulocastelo).
 
 ---
 
