@@ -1,4 +1,4 @@
-package com.blondlyapp.api.model;
+package com.boundlyapp.api.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

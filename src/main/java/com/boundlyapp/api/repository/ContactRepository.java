@@ -1,7 +1,9 @@
-package com.blondlyapp.api.repository;
+package com.boundlyapp.api.repository;
 
-import com.blondlyapp.api.model.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.boundlyapp.api.model.Contact;
+
 import java.util.UUID;
 
 /**

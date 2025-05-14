@@ -1,8 +1,9 @@
-package com.blondlyapp.api.controller;
+package com.boundlyapp.api.controller;
 
-import com.blondlyapp.api.model.Contact;
-import com.blondlyapp.api.repository.ContactRepository;
 import org.springframework.web.bind.annotation.*;
+
+import com.boundlyapp.api.model.Contact;
+import com.boundlyapp.api.repository.ContactRepository;
 
 import java.util.List;
 

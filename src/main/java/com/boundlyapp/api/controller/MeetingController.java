@@ -1,8 +1,9 @@
-package com.blondlyapp.api.controller;
+package com.boundlyapp.api.controller;
 
-import com.blondlyapp.api.model.Meeting;
-import com.blondlyapp.api.repository.MeetingRepository;
 import org.springframework.web.bind.annotation.*;
+
+import com.boundlyapp.api.model.Meeting;
+import com.boundlyapp.api.repository.MeetingRepository;
 
 import java.util.List;
 

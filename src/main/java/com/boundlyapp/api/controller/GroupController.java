@@ -1,8 +1,9 @@
-package com.blondlyapp.api.controller;
+package com.boundlyapp.api.controller;
 
-import com.blondlyapp.api.model.Group;
-import com.blondlyapp.api.repository.GroupRepository;
 import org.springframework.web.bind.annotation.*;
+
+import com.boundlyapp.api.model.Group;
+import com.boundlyapp.api.repository.GroupRepository;
 
 import java.util.List;
 
