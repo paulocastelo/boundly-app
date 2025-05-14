@@ -15,8 +15,11 @@ public class Meeting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    
+    @Column(nullable = true)
+    private String title;
 
-    private LocalDateTime dateTime;
+	private LocalDateTime dateTime;
     private String location;
     private String description;
 
@@ -56,6 +59,13 @@ public class Meeting {
         this.location = location;
     }
 
+    public String getTitle() {
+    	return title;
+    }
+    
+    public void setTitle(String title) {
+    	this.title = title;
+    }
     public String getDescription() {
         return description;
     }

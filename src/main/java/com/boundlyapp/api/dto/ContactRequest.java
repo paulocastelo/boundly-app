@@ -1,5 +1,7 @@
 package com.boundlyapp.api.dto;
 
+import java.util.UUID;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -10,14 +12,19 @@ import jakarta.validation.constraints.Size;
  */
 public class ContactRequest {
 
-    @NotBlank(message = "Name is required")
-    @Size(min = 2, max = 100)
+	@NotBlank(message = "Name is required")
+    @Size(max = 100)
     private String name;
 
+    @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
 
+    @NotBlank(message = "Phone is required")
+    @Size(max = 20)
     private String phone;
+
+    private UUID groupId; // opcional
 
     // Getters e Setters
 
@@ -44,4 +51,13 @@ public class ContactRequest {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    
+    public UUID getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(UUID groupId) {
+		this.groupId = groupId;
+	}
+
 }

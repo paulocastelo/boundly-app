@@ -1,99 +1,126 @@
-# 📱 boundly-app-api
 
-API REST para ajudar pessoas a manterem o contato com conhecidos, organizando **contatos**, **grupos** e **encontros** de forma leve, eficiente e prática.
+# 📱 Boundly App API
 
----
-
-## 🧱 Tecnologias utilizadas
-
-- Java 21
-- Spring Boot 3.4.5
-- Spring Data JPA
-- Spring Web
-- H2 Database (dev)
-- PostgreSQL (produção futura)
-- Maven
+API REST para gerenciar contatos, grupos e encontros entre pessoas, permitindo organização social eficiente de relacionamentos.
 
 ---
 
-## 📦 Estrutura do Projeto
+## 🚀 Como Rodar o Projeto
 
-```
+### ✔️ Pré-requisitos
 
-com.boundlyapp.api
-├── controller       # Endpoints REST
-├── model            # Entidades JPA
-├── repository       # Interfaces de persistência
-├── boundlyAppApiApplication.java
+- **Java 21**
+- **Maven 3.9+**
+- IDE recomendada: IntelliJ IDEA ou Eclipse
 
-````
-
----
-
-## 🔧 Como rodar localmente
-
-### Pré-requisitos
-- Java 17 ou superior
-- Maven
-- Eclipse, IntelliJ ou VSCode (com suporte a Maven)
-
-### Passos
+### 🔧 Executando Localmente
 
 ```bash
-# Clone o repositório
-git clone https://github.com/paulocastelo/boundly-app.git
-
-# Acesse o diretório do projeto
+git clone https://github.com/SEU_USUARIO/boundly-app-api.git
 cd boundly-app-api
-
-# Rode o projeto
-./mvnw spring-boot:run
+mvn clean install
+mvn spring-boot:run
 ````
 
-Ou pelo Eclipse:
-**Botão direito no arquivo `boundlyAppApiApplication.java` > Run As > Java Application**
+A aplicação estará disponível em:
+👉 [http://localhost:8080](http://localhost:8080)
+👉 Documentação Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ---
 
-## 💾 Banco de dados
+## 📦 Dependências Principais
 
-Utiliza **H2 em memória** para facilitar o desenvolvimento local.
-
-### Console Web:
-
-* Acesse: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
-* JDBC URL: `jdbc:h2:mem:boundlydb`
-* Usuário: `sa`
-* Senha: *(em branco)*
+* Spring Boot 3.2.5
+* Spring Web
+* Spring Data JPA
+* Hibernate Validator
+* Banco H2 (Dev) / PostgreSQL (Produção)
+* OpenAPI (springdoc-openapi 2.3.0)
 
 ---
 
-## 📡 Endpoints disponíveis (GET)
+## 🔗 Endpoints Disponíveis
 
-| Método | Endpoint  | Descrição                |
-| ------ | --------- | ------------------------ |
-| GET    | /contacts | Lista todos os contatos  |
-| GET    | /groups   | Lista todos os grupos    |
-| GET    | /meetings | Lista todos os encontros |
+### 📍 Pessoas (`/pessoas`)
 
----
+| Método | Rota            | Ação                       |
+| ------ | --------------- | -------------------------- |
+| GET    | `/pessoas`      | Lista todas as pessoas     |
+| GET    | `/pessoas/{id}` | Retorna uma pessoa por ID  |
+| POST   | `/pessoas`      | Cria uma nova pessoa       |
+| PUT    | `/pessoas/{id}` | Atualiza uma pessoa por ID |
+| PATCH  | `/pessoas/{id}` | Atualiza parcialmente      |
+| DELETE | `/pessoas/{id}` | Remove uma pessoa          |
 
-## 🚀 Próximos passos
-
-* [x] Endpoints GET de listagem
-* [ ] Endpoint POST `/contacts` para criar novo contato
-* [ ] Validação com Bean Validation
-* [ ] Endpoints POST para grupo e meeting
-* [ ] Documentação com Swagger/OpenAPI
-* [ ] Deploy na nuvem com PostgreSQL
+> 🧠 *Outros recursos (Assunto, Agendamento, etc.) seguem a mesma lógica.*
 
 ---
 
-## 🧠 Autor
+## 🧪 Exemplos de Requisições JSON
 
-Desenvolvido por **Paulo Anderson Oliveira Castelo**
-GitHub: [@paulocastelo](https://github.com/paulocastelo)
+### 📤 Criar Pessoa
 
-````
+```json
+POST /pessoas
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "email": "joao.silva@email.com",
+  "telefone": "11999998888"
+}
+```
+
+### ✏️ Atualizar Pessoa (PUT)
+
+```json
+PUT /pessoas/1
+Content-Type: application/json
+
+{
+  "nome": "João Atualizado",
+  "email": "joao.novo@email.com",
+  "telefone": "11999997777"
+}
+```
+
+### 🔧 Atualização Parcial (PATCH)
+
+```json
+PATCH /pessoas/1
+Content-Type: application/json
+
+{
+  "email": "joao.patch@email.com"
+}
+```
+
+---
+
+## 🧼 Retorno de Erros de Validação
+
+```json
+{
+  "status": 400,
+  "errors": [
+    "O campo nome é obrigatório",
+    "Formato de e-mail inválido"
+  ],
+  "path": "/pessoas",
+  "timestamp": "2025-05-14T21:00:00-03:00"
+}
+```
+
+---
+
+## ✍️ Contribuições
+
+Sinta-se à vontade para abrir issues e propor melhorias! Este projeto é parte do portfólio de [Paulo Anderson Oliveira Castelo](https://github.com/paulocastelo).
+
+---
+
+## 🛡️ Licença
+
+MIT License © 2025
 
 ---
